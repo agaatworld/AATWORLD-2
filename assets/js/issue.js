@@ -135,6 +135,6 @@
   /* a wheel turn on a page that has nothing left to scroll turns the page (PC) */
   var wheelT = 0; deck.addEventListener("wheel", function (ev) { if (Math.abs(ev.deltaY) < Math.abs(ev.deltaX)) return; var sh = ev.target.closest && ev.target.closest(".sheet"); if (sh && sh.scrollHeight > sh.clientHeight + 4) { var atEnd = sh.scrollTop + sh.clientHeight >= sh.scrollHeight - 2, atTop = sh.scrollTop <= 0; if ((ev.deltaY > 0 && !atEnd) || (ev.deltaY < 0 && !atTop)) return; }
     var now = Date.now(); if (now - wheelT < 520 || Math.abs(ev.deltaY) < 12) return; wheelT = now; go(cur + (ev.deltaY > 0 ? 1 : -1), true); }, { passive: true });
-  A.setLang(A.store.get("lang", A.detectLang(W.navigator.language)) === "ar" ? "ar" : "en");
+  A.setLang(A.store.get("lang", "ar") === "ar" ? "ar" : "en");
   render(null);
 })(window);
